@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ga-wdi-boston/node-modules-commonjs"
+    "url": "https://github.com/ga-wdi-boston/wdi-node-modules-commonjs"
   },
   "author": "Saad Rhoulam",
   "license": "ISC"
