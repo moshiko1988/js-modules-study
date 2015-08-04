@@ -39,15 +39,15 @@ A performance problem in many types of applications that can't be solved by
 using a fast compiled language or more efficient algorithms to process data is
 time lost waiting.
 
-Many operations, such as writing to the same file, can't be
-done concurrently; the process that tries to access the file second, or last,
-finds that the file is **locked** until the process that is writing to it closes
-it.
+Some operations are unsafe when done concurrently by two different processes.
+To solve this problem, the resource is **locked** by the process that finds it
+available first, and the one that tries to access it second, third, or last must
+wait for it to become available again.
 
 If we were using synchronous I/O, our code would sit, stalled, racking up
-second spent blocking while that file remains open for writing in another
+second spent **blocking** while that resource remains locked by another
 process. Node saves us this time through its evented, non-blocking I/O model,
-letting us schedule a task to be done with the file once it frees up, and
+letting us schedule a task to be done with the resource once it frees up, and
 execute other code in the meantime.
 
 ###What's the catch?
@@ -154,4 +154,7 @@ having the changed module in other files that use it.
 
 #Demo
 #Unstructured code-along
-
+Topics to hit:
+* Importing modules
+* Filesystem access (`fs`)
+* Organizing project files
