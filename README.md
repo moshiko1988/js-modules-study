@@ -115,7 +115,7 @@ access to the `value` variable even after being exported.
 ####What in the hell is that creature?
 We'll demystify what we saw above by observing a gradual transition.
 
-![Gradual transition](/img/gradual_transition.jpg "Gradual transition")
+![Gradual transition](/img/gradual_transformation.jpg "Gradual transition")
 
 Detour: [exercise 1](https://github.com/ga-wdi-boston/wdi-js-module-inline)
 
