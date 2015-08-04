@@ -2,9 +2,9 @@
 
 // we want to do some work in this function
 // then return a module from it
-function f() {
+function f(initialValue) {
 	// declare some variables in here that will be hidden from outside
-	var a = 0;
+	var a = initialValue;
 
 	// `g` will have access to variables in this scope, such as `a`
 	function g() {
@@ -16,7 +16,7 @@ function f() {
 }
 
 // we want to store our generated module in `module`
-var module = f(); // `module` now contains `g` from inside `f`!
+var module = f(0); // `module` now contains `g` from inside `f`!
 
 // from here, use the module you've created
 for(var index=0; index < 10; index++) {
