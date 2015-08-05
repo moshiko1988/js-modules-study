@@ -39,16 +39,16 @@ A performance problem in many types of applications that can't be solved by
 using a fast compiled language or more efficient algorithms to process data is
 time lost waiting.
 
-Some operations are unsafe when done concurrently by two different processes.
-To solve this problem, the resource is **locked** by the process that finds it
-available first, and the one that tries to access it second, third, or last must
-wait for it to become available again.
+Many operations can't be safely done concurrently; in order to interact with
+them safely, we use locks to restrict access to the resource, or let other
+processes know it's currently in use and unsafe to access. One such case is
+writing files on a filesystem.
 
 If we were using synchronous I/O, our code would sit, stalled, racking up
-second spent **blocking** while that resource remains locked by another
-process. Node saves us this time through its evented, non-blocking I/O model,
-letting us schedule a task to be done with the resource once it frees up, and
-execute other code in the meantime.
+second spent **blocking** while that file remains locked.
+Node saves us this time through its evented, non-blocking I/O model,
+letting us listen for a completion event while executing other code instead of
+sitting there waiting.
 
 ###What's the catch?
 You didn't think you were getting all that for free, did you?
