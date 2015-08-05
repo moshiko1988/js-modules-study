@@ -136,14 +136,14 @@ We'll demystify what we saw above by observing a gradual transition.
 
 ![Gradual transition](/img/gradual_transformation.jpg "Gradual transition")
 
-Detour: [exercise 1](https://github.com/ga-wdi-boston/wdi-js-module-inline)
+Detour: [exercise 1](https://github.com/ga-wdi-boston/js-module-inline-08)
 
 ###Node modules, aka CommonJS
 Node modules are your principal means of including external libraries, core
 libraries, and other files you've written to be part of the same application.
 Creating and using node modules is straightforward and imposes little on you.
 
-Detour: [exercise 2](https://github.com/ga-wdi-boston/wdi-node-modules-commonjs)
+Detour: [exercise 2](https://github.com/ga-wdi-boston/node-modules-commonjs-08)
 
 ##NPM and installing Node modules
 NPM is a package management application for our Node modules. It provides
