@@ -90,10 +90,29 @@ interface, we never have to read how they implemented it, provided it is
 working as intended.
 
 ##Module patterns
-###Bare bones
+###Canonical module pattern
+	function ModuleFactory(args) {
+		var variable = someTransformationOf(args);
+		
+		return {
+			property : value,
+			getterMethod : function() {
+				// has access to `variable` above
+				return variable;
+			},
+			setterMethod : function(value) {
+				// has access to `variable` above
+				variable = value;
+			}
+		};
+	}
+	
+	var ourModule = ModuleFactory(someArgs);
+
+###Module returned from an IIFE
 A undressed, unembellished, inline module:
 
-	var module = (function(arg, transform) {
+	var ourModule = (function(arg, transform) {
 		// secret internals
 		var value = arg;
 	
@@ -131,7 +150,7 @@ NPM is a package management application for our Node modules. It provides
 many useful facilities, some of which we'll see today.
 
 1. Searching: `npm search cors` will search for packages containing 'cors' in
-their name or description.
+any field that describes them.
 2. Installing: `npm install cors --save` will install the cors package and
 register it in your `package.json` file.
 3. Removing: `npm remove cors` will remove the package from disk and your
@@ -152,9 +171,75 @@ are **singletons**, which means that they are only loaded once by `require`.
 This presents the benefit of modifying `require`d modules in one file, and
 having the changed module in other files that use it.
 
-#Demo
-#Unstructured code-along
+#EventEmitters and Streams
+Earlier, we explained what evented, non-blocking I/O means. **EventEmitters**
+and **Streams** are the workhorses that make it happen.
+
+##EventEmitters
+`EventEmitter` is a class of object that, as the name would suggest, emits
+events. What this means is that you can attach event listeners to it with its
+`on` method, like so:
+
+	someEventEmitter instanceof EventEmitter; // true
+	someEventEmitter.on('someEvent', function(args) {
+		doStuffWith(args);
+	});
+
+We won't be doing much with EventEmitters proper, but rather classes that
+inherit from them. One such class is `Stream`.
+
+##Streams
+`Stream` is a subclass of `EventEmitter` that represents a flow of data. We
+will use Streams heavily as we work with Node.
+
+Streams come in more than one variety. First, there are readable Streams, which
+represent data flowing from elsewhere to you. Examples of when you'd use
+readable Streams:
+* Reading a file
+* Accessing incoming HTTP requests
+* Accessing incoming network messages
+
+Next, there are writable Streams, which represent data flowing from you to
+somewhere else. Examples of when you'd use writable Streams:
+* Writing to a file
+* Sending a server response to an HTTP request
+* Sending a response to a received network message
+
+There are also Streams that are readable and writable, but, that's not anything
+new given that we've discussed their components.
+
+Since every Stream is an EventEmitter, they have the `on` method we talked
+about above. We use this to attach listeners for the events that make using
+Streams useful. Here's a list of the events we'll be listening for:
+
+* **data**: A data event means the (readable) Stream has data ready for us to
+use.
+* **error**: An error event means the Stream has encountered an error in its
+operations.
+* **end**: An end event means the Stream has been closed on the writing end.
+
+There are more events, but we will use them much less frequently than these
+three. With writable Streams, we won't be listening for events, but calling
+methods to write to them:
+
+* `.write(data)`: Write `data` to the stream, where `data` can be a string or
+a Buffer. This corresponds roughly to a *data* event on the other end of the
+Stream, where it is being read.
+* `.end([data])`: Write `data` first, if given, and close the stream to further
+writing. This corresponds to the *end* event on the other end of the Stream,
+where it is being read.
+
+Finally, there is a method on readable Streams with a very particular purpose:
+
+* `.pipe(stream)`: Listen for *data* events and write the chunks to the
+provided writable Stream.
+
+#Demos & code-alongs
 Topics to hit:
-* Importing modules
-* Filesystem access (`fs`)
-* Organizing project files
+1. Importing modules
+* Singleton demonstration
+* Factory demonstration
+2. Filesystem access (`fs`)
+* EventEmitter and Stream usage
+* Copy files with `Readable.pipe`
+3. Organizing project files
