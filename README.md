@@ -32,24 +32,6 @@ unavailable, your code waits for it to become available before continuing to
 run. Under a non-blocking model, you launch your task, proceed to execute
 other, unrelated code, and let it get back to you once it's done.
 
-###Why use Node?
-This is where the two above sections come together.
-
-A performance problem in many types of applications that can't be solved by
-using a fast compiled language or more efficient algorithms to process data is
-time lost waiting.
-
-Many operations can't be safely done concurrently; in order to interact with
-them safely, we use locks to restrict access to the resource, or let other
-processes know it's currently in use and unsafe to access. One such case is
-writing files on a filesystem.
-
-If we were using synchronous I/O, our code would sit, stalled, racking up
-second spent **blocking** while that file remains locked.
-Node saves us this time through its evented, non-blocking I/O model,
-letting us listen for a completion event while executing other code instead of
-sitting there waiting.
-
 ###What's the catch?
 You didn't think you were getting all that for free, did you?
 
@@ -57,7 +39,6 @@ In exchange for that performance benefit, we pay a price in how we develop for
 Node. Our development paradigm resembles that of attaching event listeners
 to front-end HTML elements, which are then executed in an unpredictable order
 based on events that are outside our control. More on this later.
-
 
 #Modules
 Now, on modules. Modules are valuable to our ability to organize our code on
@@ -123,7 +104,7 @@ A undressed, unembellished, inline module:
 	
 			return value;
 		};
-	})(something);
+	})(someValue, someFunction);
 
 From outside, we can't access the variable `value` inside the module. This is
 the hiding bit we were talking about. However, we do get a return value, which
@@ -136,14 +117,14 @@ We'll demystify what we saw above by observing a gradual transition.
 
 ![Gradual transition](/img/gradual_transformation.jpg "Gradual transition")
 
-Detour: [exercise 1](https://github.com/ga-wdi-boston/js-module-inline-08)
+Detour: [exercise 1](https://github.com/ga-wdi-boston/js-module-inline-lab)
 
 ###Node modules, aka CommonJS
 Node modules are your principal means of including external libraries, core
 libraries, and other files you've written to be part of the same application.
 Creating and using node modules is straightforward and imposes little on you.
 
-Detour: [exercise 2](https://github.com/ga-wdi-boston/node-modules-commonjs-08)
+Detour: [exercise 2](https://github.com/ga-wdi-boston/node-modules-commonjs-lab)
 
 ##NPM and installing Node modules
 NPM is a package management application for our Node modules. It provides
@@ -153,8 +134,7 @@ many useful facilities, some of which we'll see today.
 any field that describes them.
 2. Installing: `npm install cors --save` will install the cors package and
 register it in your `package.json` file.
-3. Removing: `npm remove cors` will remove the package from disk and your
-`package.json` file.
+3. Removing: `npm remove cors` will remove the package from your project directory.
 
 NPM is also useful as a script runner; when we used `npm start` earlier, we were
 using it to run a script called 'start' written in our `package.json` file.
@@ -185,7 +165,7 @@ events. What this means is that you can attach event listeners to it with its
 		doStuffWith(args);
 	});
 
-We won't be doing much with EventEmitters proper, but rather classes that
+We won't be doing much with raw EventEmitters, but rather classes that
 inherit from them. One such class is `Stream`.
 
 ##Streams
