@@ -15,11 +15,11 @@ function f(initialValue) {
 	return g;
 }
 
-// we want to store our generated module in `module`
-var ourModule = f(0); // `module` now contains `g` from inside `f`!
+// we want to store our generated module in `ourModule`
+var ourModule = f(0); // `ourModule` now contains `g` from inside `f`!
 
 // from here, use the module you've created
 for(var index=0; index < 10; index++) {
-	var messageToBeLogged = module();
+	var messageToBeLogged = ourModule();
 	console.log(messageToBeLogged);
 }
