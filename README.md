@@ -218,9 +218,9 @@ provided writable Stream.
 Topics to hit:
 
 1. Importing modules
-* Singleton demonstration
-* Factory demonstration
+- Singleton demonstration
+- Factory demonstration
 2. Filesystem access (`fs`)
-* EventEmitter and Stream usage
-* Copy files with `Readable.pipe`
+- EventEmitter and Stream usage
+- Copy files with `Readable.pipe`
 3. Organizing project files
