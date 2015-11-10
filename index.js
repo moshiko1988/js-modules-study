@@ -16,7 +16,7 @@ function f(initialValue) {
 }
 
 // we want to store our generated module in `module`
-var module = f(0); // `module` now contains `g` from inside `f`!
+var ourModule = f(0); // `module` now contains `g` from inside `f`!
 
 // from here, use the module you've created
 for(var index=0; index < 10; index++) {
