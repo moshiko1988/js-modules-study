@@ -2,7 +2,7 @@
 
 Here, we will build an inline module like the following step-by-step:
 
-	var module = (function(arg, transform) {
+	var ourModule = (function(arg, transform) {
 		// secret internals
 		var value = arg;
 	
@@ -41,16 +41,16 @@ value with parens does nothing to change it. Run the script again if you like.
 
 ##Step 3
 Since we named our function `f`, we know that the `f` being called where we
-define `module` is the same function, right? We can replace `f` with the
+define `ourModule` is the same function, right? We can replace `f` with the
 actual function declaration, then, and it'll be the same, won't it?
 
 1. Copy the declaration of `f` in `index.js`, with the parens that surround it.
 2. Substitute the declaration you copied for `f` in the line where we declare
-and define the variable `module`.
+and define the variable `ourModule`.
 3. Remove the declaration of `f` from the lines above our declaration of
-`module`.
+`ourModule`.
 4. Run the script again and observe any difference in the result.
 
 ##Step 4
-1. Look at the code you've created to generate and store a module in `module`.
+1. Look at the code you've created to generate and store a module in `ourModule`.
 2. Look at the code at the top of this page.
