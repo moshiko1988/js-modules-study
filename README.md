@@ -214,7 +214,7 @@ Finally, there is a method on readable Streams with a very particular purpose:
 * `.pipe(stream)`: Listen for *data* events and write the chunks to the
 provided writable Stream.
 
-#Demos & code-alongs
+#Demos
 Topics to hit:
 1. Importing modules
 * Singleton demonstration
