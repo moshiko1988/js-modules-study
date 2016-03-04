@@ -6,6 +6,14 @@
 
 -   None.
 
+## Objectives
+
+By the end of this, developers should be able to:
+
+-   Read and evaluate code that uses IIFEs.
+-   Draw inferences about how Node isolates modules.
+-   Organize code into modules.
+
 ## [License](LICENSE)
 
 Source code distributed under the MIT license. Text and other assets copyright
