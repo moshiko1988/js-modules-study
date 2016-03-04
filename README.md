@@ -2,26 +2,6 @@
 
 # Study: Modules in Node and JavaScript
 
-#Introducing Node
-##What is Node?
-Node is JavaScript outside of the browser. Specifically, it's Google Chrome's
-JavaScript engine outside of the browser with evented I/O.
-
-###What do those other words mean?
-**I/O** is an umbrella term for operations that read or write data from or to a
-device or other resource, usually other than system memory.
-
-Examples of I/O: reading from and writing to files on disk, querying a database,
-sending or receiving data over a network connection.
-
-**Evented** refers to a paradigm that will deeply characterize your experience
-writing code for Node. When working with an evented API, you call an API method,
-and it does its job in the background. You can execute code that won't interact
-with its operation in the meantime. In order to make sure some code runs strictly
-after the API call, you have to register it as a handler for that API call's
-completion event, frequently called a **callback**. In JS, we usually achieve this
-by passing in a function as the final argument to methods from evented APIs.
-
 #Modules
 Now, on modules. Modules are valuable to our ability to organize our code on
 several levels. You're already familiar with modular code from Ruby, where your
