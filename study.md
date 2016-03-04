@@ -55,7 +55,7 @@ function ModuleFactory(args) {
   };
 }
 
-let ourModule = ModuleFactory(someArgs);
+let myModule = ModuleFactory(someArgs);
 // How would you use the getter and setter methods? What would they do?
 ```
 
@@ -64,7 +64,7 @@ let ourModule = ModuleFactory(someArgs);
 A undressed, unembellished, inline module:
 
 ```js
-let ourModule = (function(arg, transform) {
+let myModule = (function(arg, transform) {
   // secret internals
   let value = arg;
 
@@ -77,7 +77,7 @@ let ourModule = (function(arg, transform) {
   };
 })(someValue, someFunction);
 
-// How would you use ourModule?
+// How would you use myModule?
 ```
 
 From outside, we can't access the variable `value` inside the module. This is
@@ -91,7 +91,7 @@ access to the `value` variable even after being exported.
 Here, we will build an inline module like the following step-by-step:
 
 ```js
-var ourModule = (function(arg, transform) {
+var myModule = (function(arg, transform) {
   // secret internals
   var value = arg;
 
@@ -130,15 +130,15 @@ var ourModule = (function(arg, transform) {
 ### Checkpoint 2
 
 Since we named our function `f`, we know that the `f` being called where we
-define `ourModule` is the same function, right? We can replace `f` with the
+define `myModule` is the same function, right? We can replace `f` with the
 actual function declaration, then, and it'll be the same, won't it?
 
 1.  Copy the declaration of `f` in [`lib/inline.js`](lib/inline.js), with the
     parens that surround it.
 1.  Substitute the declaration you copied for `f` in the line where we declare
-    and define the variable `ourModule`.
+    and define the variable `myModule`.
 1.  Remove the declaration of `f` from the lines above our declaration of
-    `ourModule`.
+    `myModule`.
 1.  Run the script again and observe any difference in the result.
 
 ### Checkpoint 3
