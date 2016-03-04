@@ -181,3 +181,8 @@ are **singletons**, which means that they are only loaded once by `require`.
 
 This presents the benefit of modifying `require`d modules in one file, and
 having the changed module in other files that use it.
+
+## Response
+
+Open a pull request with your response. It should include the changes you made
+during your lab exercises.
