@@ -107,16 +107,16 @@ var ourModule = (function(arg, transform) {
 
 ### Checkpoint 0
 
-1.  Open `index.js`.
+1.  Open [`lib/inline.js`](lib/inline.js).
 1.  Read the code in detail and attempt to understand the intent.
 1.  Leave `f` as-is or alter it to create a more interesting module.
 1.  Leave the statements toward the end of the document as-is or alter them to
     do something more interesting.
-1.  Run the script with `npm start` or `node index.js`.
+1.  Run the script with `node index.js`.
 
 ### Checkpoint 1
 
-1.  Open `index.js`.
+1.  Open [`lib/inline.js`](lib/inline.js).
 1.  Put a pair of parens (`(` and `)`) around our declaration of `f`.
 
     Recall that the function declaration begins with the keyword `function` and
@@ -133,7 +133,8 @@ Since we named our function `f`, we know that the `f` being called where we
 define `ourModule` is the same function, right? We can replace `f` with the
 actual function declaration, then, and it'll be the same, won't it?
 
-1.  Copy the declaration of `f` in `index.js`, with the parens that surround it.
+1.  Copy the declaration of `f` in [`lib/inline.js`](lib/inline.js), with the
+    parens that surround it.
 1.  Substitute the declaration you copied for `f` in the line where we declare
     and define the variable `ourModule`.
 1.  Remove the declaration of `f` from the lines above our declaration of
