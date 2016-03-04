@@ -2,6 +2,10 @@
 
 # Study: Modules in Node and JavaScript
 
+## Prerequisites
+
+-   None.
+
 ## [License](LICENSE)
 
 Source code distributed under the MIT license. Text and other assets copyright
