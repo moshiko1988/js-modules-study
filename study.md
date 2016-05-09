@@ -152,8 +152,8 @@ Node modules are your principal means of including external libraries, core
 libraries, and other files you've written to be part of the same application.
 Creating and using node modules is straightforward and imposes little on you.
 
-Use `module.js` to build your module. The comments will light the way. Use
-`index.js` to load up `module.js` and utilize it. Run `index.js`.
+Use `common.js` to build your module. The comments will light the way. Use
+`index.js` to load up `common.js` and utilize it. Run `index.js`.
 
 ### Notes
 
@@ -168,7 +168,7 @@ two ways:
 1.  Assigning properties to `exports`: `exports.property = value;`
 1.  Overwriting `module.exports`: `module.exports = {}`
 
-The reasons why are detailed in the comments in `module.js`.
+The reasons why are detailed in the comments in `common.js`.
 
 ## Comparing Node Modules with Inline Modules
 
