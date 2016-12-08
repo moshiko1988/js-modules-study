@@ -117,9 +117,7 @@ var myModule = (function(arg, transform) {
 ### Checkpoint 1
 
 1.  Open [`lib/inline.js`](lib/inline.js).
-1.  Put a pair of parens (`(` and `)`) around our declaration of `f`.
-    Assign this function to a new variable, and update the assignment of
-    `ourModule` to equal this new variable.
+1.  Put a pair of parens (`(` and `)`) around the function assigned to `f`.
 
     Recall that the function expression begins with the keyword `function` and
     ends with the closing curly brace (`}`) following the function body. Your
