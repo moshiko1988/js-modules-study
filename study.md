@@ -118,12 +118,13 @@ var myModule = (function(arg, transform) {
 
 1.  Open [`lib/inline.js`](lib/inline.js).
 1.  Put a pair of parens (`(` and `)`) around our declaration of `f`.
+    Assign this function to a new variable, and update the assignment of
+    `ourModule` to equal this new variable.
 
-    Recall that the function declaration begins with the keyword `function` and
+    Recall that the function expression begins with the keyword `function` and
     ends with the closing curly brace (`}`) following the function body. Your
     opening paren belongs before the letter 'f' in `function` and your closing
     paren belongs after `}`.
-
 1.  Run the script again. Observe that this makes no actual change in what the
     code does. Surrounding a value with parens does nothing to change it.
 
@@ -131,7 +132,7 @@ var myModule = (function(arg, transform) {
 
 Since we named our function `f`, we know that the `f` being called where we
 define `myModule` is the same function, right? We can replace `f` with the
-actual function declaration, then, and it'll be the same, won't it?
+actual function expression, then, and it'll be the same, won't it?
 
 1.  Copy the declaration of `f` in [`lib/inline.js`](lib/inline.js), with the
     parens that surround it.
