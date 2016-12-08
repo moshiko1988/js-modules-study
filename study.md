@@ -112,7 +112,7 @@ var myModule = (function(arg, transform) {
 1.  Leave `f` as-is or alter it to create a more interesting module.
 1.  Leave the statements toward the end of the document as-is or alter them to
     do something more interesting.
-1.  Run the script with `node index.js`.
+1.  Run the script with `node inline.js`.
 
 ### Checkpoint 1
 
