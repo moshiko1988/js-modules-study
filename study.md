@@ -1,8 +1,14 @@
 # Study: Modules in Node and JavaScript
 
 Modules are valuable to our ability to organize our code on several levels.
-You're already familiar with modular code from Ruby, where your application code
-was split into many files, which were all executed as part of one process.
+You're already familiar with modular code from Ruby and from using the
+browser-template, where your application code was split into many files, which
+were all executed as part of one process.
+
+## Objectives
+- Explain the advantages of having modular code.
+- Write an inline module.
+- Write a module that is exported to another file.
 
 ## Interfaces
 
@@ -61,6 +67,7 @@ let myModule = ModuleFactory(someArgs);
 
 ### IIFEs
 
+> An IFFE (pronounced "iffy") is an Immediately Invoked Function Expression.
 A undressed, unembellished, inline module:
 
 ```js
@@ -91,9 +98,9 @@ access to the `value` variable even after being exported.
 Here, we will build an inline module like the following step-by-step:
 
 ```js
-var myModule = (function(arg, transform) {
+const myModule = (function(arg, transform) {
   // secret internals
-  var value = arg;
+  const value = arg;
 
   // exports
   return function() {
@@ -107,17 +114,23 @@ var myModule = (function(arg, transform) {
 
 ### Checkpoint 0
 
+1.  Create a branch `checkpoint0` and checkout to it.
 1.  Open [`lib/inline.js`](lib/inline.js).
-1.  Read the code in detail and attempt to understand the intent.
-1.  Leave `f` as-is or alter it to create a more interesting module.
+1.  Read the code in detail and write a comment with what you expect the result
+    of running the script to be.
+1.  Run the script with `node lib/inline.js`.
+1.  Alter `incrementX` to create a more interesting module.
 1.  Leave the statements toward the end of the document as-is or alter them to
     do something more interesting.
-1.  Run the script with `node inline.js`.
+1.  Run the script again and see if you get what you expected.
+1.  Commit your changes and checkout to `master`.
 
 ### Checkpoint 1
 
+1.  Checkout to a new branch, `IFFE`.
 1.  Open [`lib/inline.js`](lib/inline.js).
-1.  Put a pair of parens (`(` and `)`) around the function assigned to `f`.
+1.  Put a pair of parens (`(` and `)`) around the function assigned to
+    `incrementX`.
 
     Recall that the function expression begins with the keyword `function` and
     ends with the closing curly brace (`}`) following the function body. Your
@@ -125,34 +138,39 @@ var myModule = (function(arg, transform) {
     paren belongs after `}`.
 1.  Run the script again. Observe that this makes no actual change in what the
     code does. Surrounding a value with parens does nothing to change it.
+1.  Commit this change.
 
 ### Checkpoint 2
 
-Since we named our function `f`, we know that the `f` being called where we
-define `myModule` is the same function, right? We can replace `f` with the
-actual function expression, then, and it'll be the same, won't it?
+Since we named our function `incrementX`, we know that the `incrementX` being
+called where we define `countFromZero` is the same function, right? We can replace
+`incrementX` with the actual function expression, then, and it'll be the same,
+won't it?
 
-1.  Copy the declaration of `f` in [`lib/inline.js`](lib/inline.js), with the
-    parens that surround it.
-1.  Substitute the declaration you copied for `f` in the line where we declare
-    and define the variable `myModule`.
-1.  Remove the declaration of `f` from the lines above our declaration of
-    `myModule`.
+1.  Copy the declaration of `incrementX` in [`lib/inline.js`](lib/inline.js),
+    with the parens that surround it.
+1.  Substitute the declaration you copied for `incrementX` in the line where we
+    declare and define the variable `countFromZero`.
+1.  Remove the declaration of `incrementX` from the lines above our declaration
+    of `countFromZero`.  Your module should now look like the `myModule` above.
 1.  Run the script again and observe any difference in the result.
+1.  Commit this change. Include a comment with your observations in the commit
+    message.
 
 ### Checkpoint 3
 
-Compare the code you've created and compare it to the code at the beginning of
-this section.
+Compare the code you've created and compare it to the code on the master branch.
 
 ## Lab: Exploring Modules in Node (CommonJS Standard)
 
 Node modules are your principal means of including external libraries, core
 libraries, and other files you've written to be part of the same application.
-Creating and using node modules is straightforward and imposes little on you.
+Creating and using node modules is a great way to separate concerns and keep
+your code DRY.
 
 Use `common.js` to build your module. The comments will light the way. Use
-`index.js` to load up `common.js` and utilize it. Run `index.js`.
+`index.js` to load up `common.js` and utilize it. Run `index.js` using
+`node lib/index.js` in your terminal.
 
 ### Notes
 
@@ -185,4 +203,5 @@ having the changed module in other files that use it.
 ## Response
 
 Open a pull request with your response. It should include the changes you made
-during your lab exercises.
+during checkpoint 2 (two commits) and the Exploring Modules lab (at least one
+commit).
