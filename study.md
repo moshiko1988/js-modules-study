@@ -203,4 +203,5 @@ having the changed module in other files that use it.
 ## Response
 
 Open a pull request with your response. It should include the changes you made
-during your lab exercises.
+during checkpoint 2 (two commits) and the Exploring Modules lab (at least one
+commit).
