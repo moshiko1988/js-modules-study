@@ -67,6 +67,7 @@ let myModule = ModuleFactory(someArgs);
 
 ### IIFEs
 
+> An IFFE (pronounced "iffy") is an Immediately Invoked Function Expression.
 A undressed, unembellished, inline module:
 
 ```js
