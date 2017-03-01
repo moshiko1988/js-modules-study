@@ -165,10 +165,12 @@ Compare the code you've created and compare it to the code on the master branch.
 
 Node modules are your principal means of including external libraries, core
 libraries, and other files you've written to be part of the same application.
-Creating and using node modules is straightforward and imposes little on you.
+Creating and using node modules is a great way to separate concerns and keep
+your code DRY.
 
 Use `common.js` to build your module. The comments will light the way. Use
-`index.js` to load up `common.js` and utilize it. Run `index.js`.
+`index.js` to load up `common.js` and utilize it. Run `index.js` using
+`node lib/index.js` in your terminal.
 
 ### Notes
 
