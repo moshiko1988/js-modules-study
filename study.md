@@ -127,8 +127,10 @@ var myModule = (function(arg, transform) {
 
 ### Checkpoint 1
 
+1.  Checkout to a new branch, `IFFE`.
 1.  Open [`lib/inline.js`](lib/inline.js).
-1.  Put a pair of parens (`(` and `)`) around the function assigned to `f`.
+1.  Put a pair of parens (`(` and `)`) around the function assigned to
+    `incrementX`.
 
     Recall that the function expression begins with the keyword `function` and
     ends with the closing curly brace (`}`) following the function body. Your
@@ -136,25 +138,28 @@ var myModule = (function(arg, transform) {
     paren belongs after `}`.
 1.  Run the script again. Observe that this makes no actual change in what the
     code does. Surrounding a value with parens does nothing to change it.
+1.  Commit this change.
 
 ### Checkpoint 2
 
-Since we named our function `f`, we know that the `f` being called where we
-define `myModule` is the same function, right? We can replace `f` with the
-actual function expression, then, and it'll be the same, won't it?
+Since we named our function `incrementX`, we know that the `incrementX` being
+called where we define `countFromZero` is the same function, right? We can replace
+`incrementX` with the actual function expression, then, and it'll be the same,
+won't it?
 
-1.  Copy the declaration of `f` in [`lib/inline.js`](lib/inline.js), with the
-    parens that surround it.
-1.  Substitute the declaration you copied for `f` in the line where we declare
-    and define the variable `myModule`.
-1.  Remove the declaration of `f` from the lines above our declaration of
-    `myModule`.
+1.  Copy the declaration of `incrementX` in [`lib/inline.js`](lib/inline.js),
+    with the parens that surround it.
+1.  Substitute the declaration you copied for `incrementX` in the line where we
+    declare and define the variable `countFromZero`.
+1.  Remove the declaration of `incrementX` from the lines above our declaration
+    of `countFromZero`.  Your module should now look like the `myModule` above.
 1.  Run the script again and observe any difference in the result.
+1.  Commit this change. Include a comment with your observations in the commit
+    message.
 
 ### Checkpoint 3
 
-Compare the code you've created and compare it to the code at the beginning of
-this section.
+Compare the code you've created and compare it to the code on the master branch.
 
 ## Lab: Exploring Modules in Node (CommonJS Standard)
 
