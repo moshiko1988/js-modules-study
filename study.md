@@ -98,9 +98,9 @@ access to the `value` variable even after being exported.
 Here, we will build an inline module like the following step-by-step:
 
 ```js
-var myModule = (function(arg, transform) {
+const myModule = (function(arg, transform) {
   // secret internals
-  var value = arg;
+  const value = arg;
 
   // exports
   return function() {
